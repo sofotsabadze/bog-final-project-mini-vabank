@@ -1,0 +1,170 @@
+/* Container to take up the entire screen */
+.register-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the right */
+}
+/* Company photo styling */
+.company-photo {
+  width: 50%; /* Adjust this as needed */
+  height: 100vh; /* Make it full height of the screen */
+  object-fit: cover; /* Cover the area without distortion */
+}
+
+/* Register form with 2/5 width */
+.register-form {
+  width: 30%; /* 2/5 of the display width */
+  max-width: 500px; /* Optional: Maximum width limit */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Additional styling as needed */
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 10px;
+  color: grey;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 200px 10px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control::placeholder {
+  color: lightgrey;
+  font-weight: 300;
+}
+
+.form-control:focus::placeholder {
+  color: transparent;
+}
+
+.btn-submit:disabled {
+  background-color: #ccc;
+}
+
+/* Styling the register button */
+.btn-submit {
+  display: flex;
+  align-items: center; /* Aligns icon and text vertically */
+  justify-content: center; /* Centers the content in the button */
+  color: orange; /* Orange text */
+  border: 2px solid orange; /* Orange outline */
+  background-color: transparent; /* Transparent background */
+  padding: 10px 20px; /* Adjust padding for button size */
+  font-size: 16px; /* Adjust the font size */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Hand cursor when hovering */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  text-transform: uppercase; /* Uppercase letters */
+}
+
+/* Hover effect for button */
+.btn-submit:hover {
+  background-color: orange; /* Orange background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Icon inside the button */
+.btn-submit i {
+  margin-right: 8px; /* Space between icon and text */
+  color: orange; /* Orange icon */
+}
+
+/* Positioning the button at the right */
+.form-group-button {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-top: 20px; /* Adds spacing between password field and button */
+}
+
+/* Login link styling */
+.login-link {
+  color: orange; /* Orange text */
+  text-decoration: none; /* Removes underline */
+  font-size: 16px; /* Adjust font size */
+  margin-right: auto; /* Pushes it to the left */
+  transition: color 0.3s ease; /* Smooth transition */
+  padding-left: 10px; /* Add some padding for alignment */
+}
+
+/* Hover effect for login link */
+.login-link:hover {
+  color: darkorange; /* Darken the color on hover */
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  min-height: 20px; /* Set a minimum height */
+}
+
+/* Logo image styling */
+.logo {
+  width: 296px; /* Adjust the width as needed */
+  height: 53px; /* Maintain aspect ratio */
+  background-size: cover; /* Make sure it fits */
+  background-repeat: no-repeat;
+  background-image: url('/assets/bank-logo-v2.png')
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 50px;
+}
+
+.photo-container {
+  position: relative; /* Needed for the overlay */
+  width: 50%; /* Adjust this as needed */
+  height: 100vh; /* Full height */
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+}
+
+.company-photo {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  pointer-events: none; /* Allow clicks to go through */
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 20%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.5) 80%);
+  background-size: 10px 10px; /* Adjust dot size */
+}

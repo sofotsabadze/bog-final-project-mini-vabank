@@ -1,0 +1,16 @@
+/* Logo container */
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  min-height: 20px; /* Set a minimum height */
+}
+
+/* Logo image styling */
+.logo {
+  width: 296px; /* Adjust the width as needed */
+  height: 53px; /* Maintain aspect ratio */
+  background-size: cover; /* Make sure it fits */
+  background-repeat: no-repeat;
+  background-image: url('/assets/bank-logo-v2.png')
+}

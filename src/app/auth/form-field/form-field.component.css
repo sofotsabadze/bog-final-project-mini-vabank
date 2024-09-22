@@ -1,0 +1,44 @@
+.form-field-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 10px;
+  color: grey;
+}
+
+.form-field-input {
+  width: 100%;
+  padding: 10px 200px 10px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-field-input::placeholder {
+  color: lightgrey;
+  font-weight: 300;
+}
+
+.form-field-input:focus::placeholder {
+  color: transparent;
+}
+
+.invalid {
+  border: 1px solid red; /* Highlight invalid input */
+}
+
+.error-text {
+  color: red; /* Error message color */
+}
+
+.error-message {
+  margin-top: 4px; /* Space between input and error message */
+}

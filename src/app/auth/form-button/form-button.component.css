@@ -1,0 +1,53 @@
+.btn-submit:disabled {
+  background-color: #ccc;
+}
+
+/* Styling the register button */
+.btn-submit {
+  display: flex;
+  align-items: center; /* Aligns icon and text vertically */
+  justify-content: center; /* Centers the content in the button */
+  color: orange; /* Orange text */
+  border: 2px solid orange; /* Orange outline */
+  background-color: transparent; /* Transparent background */
+  padding: 10px 20px; /* Adjust padding for button size */
+  font-size: 16px; /* Adjust the font size */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Hand cursor when hovering */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  text-transform: uppercase; /* Uppercase letters */
+}
+
+/* Hover effect for button */
+.btn-submit:hover {
+  background-color: orange; /* Orange background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Icon inside the button */
+.btn-submit i {
+  margin-right: 8px; /* Space between icon and text */
+  color: orange; /* Orange icon */
+}
+
+/* Positioning the button at the right */
+.form-group-button {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-top: 20px; /* Adds spacing between password field and button */
+}
+
+/* Login link styling */
+.login-link {
+  color: orange; /* Orange text */
+  text-decoration: none; /* Removes underline */
+  font-size: 16px; /* Adjust font size */
+  margin-right: auto; /* Pushes it to the left */
+  transition: color 0.3s ease; /* Smooth transition */
+  padding-left: 10px; /* Add some padding for alignment */
+}
+
+/* Hover effect for login link */
+.login-link:hover {
+  color: darkorange; /* Darken the color on hover */
+}

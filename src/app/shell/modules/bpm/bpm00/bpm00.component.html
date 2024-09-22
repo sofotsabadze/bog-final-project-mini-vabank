@@ -1,0 +1,53 @@
+<div>
+  <h2>კლენტების ძებნა</h2>
+
+  <div class="search-component" [formGroup]="searchForm">
+    <div class="search-fields">
+      <div class="field-container">
+        <label for="firstname">სახელი</label>
+        <input formControlName="firstname" id="firstname" type="text" />
+      </div>
+      <div class="field-container">
+        <label for="lastname">გვარი</label>
+        <input formControlName="lastname" id="lastname" type="text" />
+      </div>
+      <div class="field-container">
+        <label for="clientId">კლიენტის უნიკალური</label>
+        <input formControlName="clientId" id="clientId" type="text" />
+      </div>
+    </div>
+    <div>
+      <button class="search-btn" type="button" (click)="onSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="clients-grid">
+    <div class="clients-header">
+      <h3>კლიენტები</h3>
+      <button class="add-client-btn">
+        <span>+</span>
+      </button>
+    </div>
+
+    <div class="records-list">
+      <table>
+        <thead>
+        <tr>
+          <th>სახელი</th>
+          <th>გვარი</th>
+          <th>კლიენტის უნიკალური</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let record of displayedRecords">
+          <td>{{ record.name }}</td>
+          <td>{{ record.role }}</td>
+          <td>{{ record.bpmValue }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

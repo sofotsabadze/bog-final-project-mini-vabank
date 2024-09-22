@@ -1,0 +1,30 @@
+<div class="form-field-container">
+  <label [for]="fieldId">{{ label }}</label>
+  <div class="input-icon">
+    <i [class]="iconClass"></i>
+    <input
+      [type]="type"
+      [formControl]="control"
+      [placeholder]="placeholder"
+      [id]="fieldId"
+      class="form-field-input"
+      [ngClass]="{'invalid': control.invalid && (control.dirty)}"
+    />
+  </div>
+  <div *ngIf="control.invalid && (control.dirty)" class="error-message">
+    <div *ngIf="control.errors?.['required']" class="error-text">
+      აუცილებელი ველი
+    </div>
+    <div *ngIf="control.errors?.['noSpaces']" class="error-text">
+      {{ control.errors?.['noSpaces'] }}
+    </div>
+    <div *ngIf="control.errors?.['minLength']" class="error-text">
+      {{ control.errors?.['minLength'] }}
+    </div>
+    <div *ngIf="control.errors?.['maxLength']" class="error-text">
+      {{ control.errors?.['maxLength'] }}
+    </div>
+  </div>
+
+
+</div>

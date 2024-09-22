@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class ="form-section">
+    <app-company-logo></app-company-logo>
+    <div class="logo-container">
+      <div class="logo"></div>
+    </div>
+
+    <app-form-field
+      iconClass="fas fa-user"
+      type="text"
+      placeholder="მომხმარებელი"
+      fieldId="username"
+      [control]="loginForm.controls['username']"
+      errorMessage="errorMessage">>
+    </app-form-field>
+
+    <app-form-field
+      iconClass="fas fa-lock"
+      type="text"
+      placeholder="პაროლი"
+      fieldId="password"
+      [control]="loginForm.controls['password']">
+    </app-form-field>
+
+    <app-form-button
+      href="/auth/register"
+      hrefText="რეგისტრაცია"
+      [disabled]="loginForm.invalid"
+      submitText="შესვლა"
+      iconClass="fas fa-sign-in">
+    </app-form-button>
+  </div>
+</form>
