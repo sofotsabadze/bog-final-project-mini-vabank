@@ -24,6 +24,13 @@
     <div *ngIf="control.errors?.['maxLength']" class="error-text">
       {{ control.errors?.['maxLength'] }}
     </div>
+    <div *ngIf="control.errors?.['minValue']" class="error-text">
+       {{ control.errors?.['minValue'] }}
+    </div>
+    <div *ngIf="control.errors?.['passwordNotMatch']" class="error-text">
+       {{ control.errors?.['passwordNotMatch'] }}
+    </div>
+
   </div>
 
 

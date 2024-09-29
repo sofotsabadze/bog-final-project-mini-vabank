@@ -1,0 +1,35 @@
+<div class="ui segment">
+    <h2 class="ui header">ანგარიშები</h2>
+    <div class="ui segment">
+        <div class="ui grid">
+            <div class="eight wide column">
+                <h3 class="ui header">ანგარიშები</h3>
+            </div>
+            <div class="eight wide column right aligned">
+                <button class="ui icon button" (click)="addNewAccount()">
+                    <i class="plus icon"></i>
+                </button>
+            </div>
+        </div>
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>მფლობელი</th>
+                <th>სახელი</th>
+                <th>თანხა</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let acc of accountList">
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.accountName }}</td>
+                <td>{{ acc.amount }}</td>
+                <td>
+                    <i class="trash icon trash-icon" (click)="deleteAccount(acc)"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

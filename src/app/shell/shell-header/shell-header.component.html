@@ -1,0 +1,26 @@
+<header class="header-container">
+    <div class="brand-logo">
+        <img [src]="logoSrc" alt="Logo">
+    </div>
+
+    <div class="header-actions">
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" class="search-field" [(ngModel)]="searchQuery" placeholder="Search..." />
+                <button class="action-btn search-trigger" (click)="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <button class="action-btn" (click)="onLanguageChange()">
+            <i class="fas fa-language"></i>
+        </button>
+        <button class="action-btn" (click)="onNotificationClick()">
+            <i class="fas fa-bell"></i>
+        </button>
+        <button class="action-btn" (click)="onProfileClick()">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+</header>

@@ -1,0 +1,33 @@
+<div class="ui segments">
+    <div class="ui segment">
+        <div class="ui grid">
+            <div class="four wide column">
+                <img class="ui rounded image" ngSrc="assets/avatar.jpeg" height="200" width="400" alt="Profile image"/>
+            </div>
+            <div class="six wide column">
+                <div class="content">
+                    <h3 class="ui header">Test 4 Tester</h3>
+                    <p>უნიკალური კოდი: <strong>18</strong></p>
+                </div>
+            </div>
+            <div class="three wide column">
+                <div class="content">
+                    <p>ღირებულება: <strong style="color: green;">10000 GEL</strong></p>
+                    <p>Plus: <strong>5000</strong></p>
+                </div>
+            </div>
+            <div class="three wide column">
+                <button class="ui red button">გასვლა</button>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment">
+        <div class="ui three item menu">
+            <a class="item" routerLink="/krn/krnicp" routerLinkActive="active">მთავარი</a>
+            <a class="item" routerLink="/krn/accounts" routerLinkActive="active">ანგარიშები</a>
+            <a class="item" routerLink="/krn/operations" routerLinkActive="active">ოპერაციები</a>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

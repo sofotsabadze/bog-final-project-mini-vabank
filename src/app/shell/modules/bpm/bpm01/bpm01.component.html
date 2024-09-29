@@ -1,1 +1,38 @@
-<p>bpm01 works!</p>
+<div class="ui segment">
+    <h3 class="ui header">კლიენტის რეგისტრაცია</h3>
+    <form [formGroup]="registrationForm" class="ui form" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <app-form-field
+                    type="text"
+                    placeholder="სახელი"
+                    fieldId="firstName"
+                    [control]="registrationForm.controls['firstName']"
+                    errorMessage="errorMessage">
+            </app-form-field>
+        </div>
+
+        <div class="field">
+            <app-form-field
+                    type="text"
+                    placeholder="გვარი"
+                    fieldId="lastName"
+                    [control]="registrationForm.controls['lastName']"
+                    errorMessage="errorMessage">
+            </app-form-field>
+        </div>
+
+        <div class="field">
+            <app-form-field
+                    type="number"
+                    placeholder="Plus ქულები"
+                    fieldId="plusPoints"
+                    [control]="registrationForm.controls['plusPoints']"
+                    errorMessage="errorMessage">
+            </app-form-field>
+        </div>
+
+        <button class="ui blue button" type="submit" (click)="onSubmit()">
+            <i class="save icon"></i> რეგისტრაცია
+        </button>
+    </form>
+</div>

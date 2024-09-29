@@ -1,42 +1,51 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <app-company-logo></app-company-logo>
-  <app-form-field
-    iconClass="fas fa-user"
-    type="text"
-    placeholder="მომხმარებელი"
-    fieldId="username"
-    [control]="registerForm.controls['username']">
-  </app-form-field>
+    <app-company-logo></app-company-logo>
 
-  <app-form-field
-    iconClass="fas fa-id-badge"
-    type="text"
-    placeholder="სახელი"
-    fieldId="name"
-    [control]="registerForm.controls['name']">
-  </app-form-field>
+    <app-form-field
+            iconClass="fas fa-id-badge"
+            type="text"
+            placeholder="სახელი"
+            fieldId="name"
+            [control]="registerForm.controls['name']"
+            errorMessage="errorMessage">
+    </app-form-field>
 
-  <app-form-field
-    iconClass="fas fa-lock"
-    type="text"
-    placeholder="პაროლი"
-    fieldId="password"
-    [control]="registerForm.controls['password']">
-  </app-form-field>
+    <app-form-field
+            iconClass="fas fa-user"
+            type="text"
+            placeholder="მომხმარებელი"
+            fieldId="username"
+            [control]="registerForm.controls['username']"
+            errorMessage="errorMessage">
+    </app-form-field>
 
-  <app-form-field
-    iconClass="fas fa-lock"
-    type="text"
-    placeholder="განმეორებითი პაროლი"
-    fieldId="confirmPassword"
-    [control]="registerForm.controls['confirmPassword']">
-  </app-form-field>
+    <app-form-field
+            iconClass="fas fa-lock"
+            type="password"
+            placeholder="პაროლი"
+            fieldId="password"
+            [control]="registerForm.controls['password']"
+            errorMessage="errorMessage">
+    </app-form-field>
 
-  <app-form-button
-    href="/auth"
-    hrefText="შესვლა"
-    [disabled]="registerForm.invalid"
-    submitText="რეგისტრაცია"
-    iconClass="fas fa-user-plus">
-  </app-form-button>
+    <app-form-field
+            iconClass="fas fa-lock"
+            type="password"
+            placeholder="განმეორებითი პაროლი"
+            fieldId="confirmPassword"
+            [control]="registerForm.controls['confirmPassword']"
+            errorMessage="errorMessage">
+    </app-form-field>
+
+    <app-form-button
+            href="/auth"
+            hrefText="შესვლა"
+            [disabled]="registerForm.invalid"
+            submitText="რეგისტრაცია"
+            iconClass="fas fa-user-plus">
+    </app-form-button>
+
+<!--    <button class="ui blue button" type="submit" (click)="onSubmit()">-->
+<!--        <i class="fas fa-user-plus"></i> რეგისტრაცია-->
+<!--    </button>-->
 </form>

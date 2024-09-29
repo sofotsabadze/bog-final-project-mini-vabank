@@ -4,7 +4,11 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {AuthComponent} from "./auth/auth.component";
 import {Bpm00Component} from "./shell/modules/bpm/bpm00/bpm00.component";
 import {Bpm01Component} from "./shell/modules/bpm/bpm01/bpm01.component";
-import {BpmComponent} from "./shell/modules/bpm/bpm.component";
+import {ShellComponent} from "./shell/shell.component";
+import {OperationsComponent} from "./shell/modules/krn/operations/operations.component";
+import {CreateAccountComponent} from "./shell/modules/krn/accounts/create-account/create-account.component";
+import {AccountsComponent} from "./shell/modules/krn/accounts/accounts.component";
+import {KrnComponent} from "./shell/modules/krn/krn.component";
 
 export const routes: Routes = [ {
   path: 'auth',
@@ -16,13 +20,45 @@ export const routes: Routes = [ {
 },
   {
     path: 'bpm',
-    // component: BpmComponent,
+    component: ShellComponent,
     children: [
       { path: 'bpm00', component: Bpm00Component },
-      // { path: 'bpm01', component: Bpm01Component }
+      { path: 'bpm01', component: Bpm01Component }
     ]
   },
-  { path: '', redirectTo: '/auth', pathMatch: 'full' }, // Default to login
-  { path: '**', redirectTo: '/auth' } // Wildcard route for handling 404s
+
+  {
+    path: 'krn',
+    component: ShellComponent,
+    children: [
+      { path: 'krnicp', component: KrnComponent },
+      {
+        path: 'accounts',
+        component: KrnComponent,
+        children: [
+          {
+            path: '',
+            component: AccountsComponent
+          },
+          {
+            path: 'create',
+            component: CreateAccountComponent
+          }
+        ]
+      },
+      {
+        path: 'operations',
+        component: KrnComponent,
+        children: [
+          {
+            path: '',
+            component: OperationsComponent
+          }
+        ]
+      }
+    ]
+  },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '**', redirectTo: '/auth' }
 ];
 
