@@ -13,6 +13,8 @@ export class AuthService {
     async signIn(username: string, password: string) {
         const email = username + '@gmail.com';
         const result = await signInWithEmailAndPassword(this.auth, email, password);
+        const token = await result.user.getIdToken();
+        localStorage.setItem('authToken', token);
         console.log('User signed in:', result);
     }
 
@@ -35,5 +37,9 @@ export class AuthService {
     async logout() {
         await signOut(this.auth);
         console.log('User signed out');
+    }
+
+    getToken(): string | null {
+        return localStorage.getItem('authToken');
     }
 }

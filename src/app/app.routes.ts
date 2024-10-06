@@ -9,6 +9,7 @@ import {OperationsComponent} from "./shell/modules/krn/operations/operations.com
 import {CreateAccountComponent} from "./shell/modules/krn/accounts/create-account/create-account.component";
 import {AccountsComponent} from "./shell/modules/krn/accounts/accounts.component";
 import {KrnComponent} from "./shell/modules/krn/krn.component";
+import {AuthGuard} from "./auth/AuthGuard";
 
 export const routes: Routes = [ {
   path: 'auth',
@@ -20,6 +21,7 @@ export const routes: Routes = [ {
 },
   {
     path: 'bpm',
+    canActivate: [AuthGuard],
     component: ShellComponent,
     children: [
       { path: 'bpm00', component: Bpm00Component },
@@ -30,6 +32,7 @@ export const routes: Routes = [ {
   {
     path: 'krn',
     component: ShellComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'krnicp', component: KrnComponent },
       {
