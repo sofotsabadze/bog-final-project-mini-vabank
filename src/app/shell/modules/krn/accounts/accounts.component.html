@@ -21,12 +21,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let acc of accountList">
-                <td>{{ acc.name }}</td>
-                <td>{{ acc.accountName }}</td>
-                <td>{{ acc.amount }}</td>
+            <tr *ngFor="let account of accountsList">
+                <td>{{ account.accountName }}</td>
+                <td>{{ account.accountName }}</td>
+                <td>{{ account.accountAmount }}</td>
                 <td>
-                    <i class="trash icon trash-icon" (click)="deleteAccount(acc)"></i>
+                    <i class="trash icon trash-icon" (click)="deleteAccount(account)"></i>
                 </td>
             </tr>
             </tbody>

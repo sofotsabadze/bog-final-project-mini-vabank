@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { NgIf, NgOptimizedImage } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
@@ -14,6 +14,9 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ['./shell-header.component.css']
 })
 export class ShellHeaderComponent {
+  clientId: string | null = null;
+  clientName: string = "";
+  plusPoints: number = 0;
   logoSrc = 'assets/bank-horizontal-logo.png';
   searchQuery: any;
   showSearch: boolean = true;

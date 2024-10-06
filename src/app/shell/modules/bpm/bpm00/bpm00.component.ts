@@ -68,6 +68,6 @@ export class Bpm00Component implements OnInit {
   }
 
   onRowClick(record: any) {
-    this.router.navigate(['/krn/krnicp']).then(() => console.log('Navigate to profile'));
+    this.router.navigate(['/krn/krnicp'], {queryParams: {clientId: record.clientId}});
   }
 }

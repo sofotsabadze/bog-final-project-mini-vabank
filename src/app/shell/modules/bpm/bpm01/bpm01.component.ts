@@ -27,9 +27,9 @@ export class Bpm01Component {
 
   constructor(private firebaseService: FirebaseService, private router: Router) {
     this.registrationForm = new FormGroup<IRegisterForm>({
-      firstName: new FormControl<string | null>('', [Validators.required, registerFirstNameValidator()]), // Synchronous validators in an array
-      lastName: new FormControl<string | null>('', [Validators.required, registerLastNameValidator()]),   // Synchronous validators in an array
-      plusPoints: new FormControl<number | null>(null, [Validators.required, registerPlusPointsValidator()])          // Handling number validation
+      firstName: new FormControl<string | null>('', [Validators.required, registerFirstNameValidator()]),
+      lastName: new FormControl<string | null>('', [Validators.required, registerLastNameValidator()]),
+      plusPoints: new FormControl<number | null>(null, [Validators.required, registerPlusPointsValidator()])
     });
   }
 
@@ -37,7 +37,6 @@ export class Bpm01Component {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       console.log('Form Data:', formData);
-      // Implement your form submission logic here
       this.firebaseService.addClient(formData);
       this.router.navigate(['/bpm/bpm00']).then(() =>
           console.log("Navigate to client list")

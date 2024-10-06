@@ -43,10 +43,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let record of displayedRecords" (click)="onRowClick(record)">
-            <td>{{ record.firstName }}</td>
-            <td>{{ record.lastName }}</td>
-            <td>{{ 1 }}</td>
+        <tr *ngFor="let client of displayedRecords" (click)="onRowClick(client)">
+            <td>{{ client.firstName }}</td>
+            <td>{{ client.lastName }}</td>
+            <td>{{ client.clientId }}</td>
         </tr>
         </tbody>
     </table>

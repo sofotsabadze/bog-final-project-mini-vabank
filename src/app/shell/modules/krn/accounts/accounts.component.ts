@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { NgForOf } from "@angular/common";
-import { Router } from "@angular/router";
-
-interface AccountData {
-  name: string;
-  accountName: string;
-  amount: number;
-}
+import {ActivatedRoute, Router} from "@angular/router";
+import {FirebaseService} from "../../../../firebase-service";
 
 @Component({
   selector: 'app-accounts',
@@ -17,22 +12,39 @@ interface AccountData {
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.css']
 })
-export class AccountsComponent {
-  accountList: AccountData[] = [
-    { name: 'Test 1', accountName: 'Test Account', amount: 100 },
-    { name: 'Test 2', accountName: 'Test Account', amount: 200 },
-    { name: 'Test 3', accountName: 'Test Account', amount: 300 },
-    { name: 'Test 4', accountName: 'Test Account', amount: 400 }
-  ];
+export class AccountsComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  clientId: string | null = null;
+  accountsList: any[] = [];
+  totalAmount: number = 0;
+  @Output() totalAmountCalculated: EventEmitter<number> = new EventEmitter<number>();
 
-  deleteAccount(account: AccountData) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private firebaseService: FirebaseService) {
+    this.route.queryParamMap.subscribe(params => {
+      this.clientId = params.get('clientId');
+    });
+  }
+
+  ngOnInit() {
+    this.firebaseService.fetchAccountsByClientId(this.clientId!).then((data) => {
+      this.accountsList = data ? Object.values(data) : [];
+      this.totalAmount = this.accountsList.reduce((total, account) => {
+        return total + (parseFloat(account.accountAmount) || 0);
+      }, 0);
+      console.log("amount:", this.totalAmount);
+      this.totalAmountCalculated.emit(this.totalAmount);
+    }).catch((error) => {
+      console.error('Error fetching clients data:', error);
+    });
+  }
+
+  deleteAccount(account: any) {
     console.log('Delete clicked for:', account);
   }
 
   addNewAccount() {
-    console.log('Add account clicked');
-    this.router.navigate(['/krn/accounts/create']);
+    this.router.navigate(['/krn/accounts/create'], {queryParamsHandling: 'preserve'});
   }
 }

@@ -1,27 +1,29 @@
-<!--<div class="ui segment">-->
-<!--    <h3 class="ui header">ანგარიშის შექმნა</h3>-->
+<div class="ui segment">
+    <h3 class="ui header">ანგარიშის შექმნა</h3>
 
-<!--    <div class="ui grid">-->
-<!--        <div class="six wide column">-->
-<!--            <form class="ui form" [formGroup]="accountForm" (ngSubmit)="submitAccount()">-->
-<!--                <div class="field">-->
-<!--                    <label>ანგარიშის მფლობელი</label>-->
-<!--                    <input type="text" placeholder="მფლობელის სახელი" formControlName="name">-->
-<!--                    <div *ngIf="accountForm.get('name').invalid && accountForm.get('name').touched" class="ui red message">-->
-<!--                        სახელი სავალდებულოა-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="field">-->
-<!--                    <label>თანხა</label>-->
-<!--                    <input type="number" placeholder="თანხა" formControlName="amount">-->
-<!--                    <div *ngIf="accountForm.get('amount').invalid && accountForm.get('amount').touched" class="ui red message">-->
-<!--                        გთხოვთ შეიყვანოთ სწორი თანხა-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <button class="ui blue icon button" [disabled]="accountForm.invalid">-->
-<!--                    <i class="save icon"></i>-->
-<!--                </button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+    <form [formGroup]="createAccountForm" class="ui form" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <app-form-field
+                    type="text"
+                    placeholder="სახელი"
+                    fieldId="firstName"
+                    [control]="createAccountForm.controls['accountName']"
+                    errorMessage="errorMessage">
+            </app-form-field>
+        </div>
+
+        <div class="field">
+            <app-form-field
+                    type="number"
+                    placeholder="თანხა"
+                    fieldId="lastName"
+                    [control]="createAccountForm.controls['accountAmount']"
+                    errorMessage="errorMessage">
+            </app-form-field>
+        </div>
+
+        <button class="ui blue button" type="submit" (click)="onSubmit()">
+            <i class="save icon"></i> შექმნა
+        </button>
+    </form>
+</div>
