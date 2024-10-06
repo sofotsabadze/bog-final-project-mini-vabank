@@ -41,7 +41,17 @@ export class AccountsComponent implements OnInit {
   }
 
   deleteAccount(account: any) {
-    console.log('Delete clicked for:', account);
+    console.log('Delete account clicked for:', account);
+    if (confirm('ნამდვილად გსურთ ექაუნთის წაშლა?')) {
+      try {
+        this.firebaseService.deleteAccount(this.clientId!, account.accountId).then(() => {
+          this.accountsList = this.accountsList.filter(acc => acc.id !== account.id);
+          console.log('Account deleted successfully.');
+        });
+      } catch (error) {
+        console.error('Error deleting account:', error);
+      }
+    }
   }
 
   addNewAccount() {

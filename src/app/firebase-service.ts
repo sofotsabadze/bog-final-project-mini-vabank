@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Database, ref, push, get, child, set} from '@angular/fire/database';
+import {Database, ref, push, get, child, set, remove} from '@angular/fire/database';
+import {deleteDoc} from "@angular/fire/firestore";
 
 @Injectable({
     providedIn: 'root'
@@ -93,6 +94,18 @@ export class FirebaseService {
             }
         } catch (error) {
             console.error("Error fetching accounts:", error);
+            throw error;
+        }
+    }
+
+    async deleteAccount(clientId: string, accountId: string): Promise<void> {
+        try {
+            console.log('Deleting account with ID: ', accountId);
+            const accountRef = ref(this.db, `clients/${clientId}/accounts/${accountId}`);
+            await remove(accountRef);
+            console.log(`Account with ID ${accountId} has been deleted.`);
+        } catch (error) {
+            console.error('Error deleting account:', error);
             throw error;
         }
     }
