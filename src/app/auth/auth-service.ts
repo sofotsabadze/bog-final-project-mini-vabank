@@ -34,9 +34,15 @@ export class AuthService {
 
     }
 
-    async logout() {
-        await signOut(this.auth);
-        console.log('User signed out');
+    async signOut() {
+        try {
+            await signOut(this.auth);
+            console.log('User signed out');
+            localStorage.removeItem('authToken');
+            this.router.navigate(['/auth']);
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
     }
 
     getToken(): string | null {

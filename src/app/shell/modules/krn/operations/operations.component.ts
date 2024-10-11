@@ -12,8 +12,6 @@ export class OperationsComponent {
   constructor(private router: Router) {}
 
   navigateToPmd311() {
-    this.router.navigate(['/pmd/pmd311']).then(r =>
-    console.log("navigated to pmd311")
-    );
+    this.router.navigate(['/pmd/pmd311'], {queryParamsHandling: 'preserve'});
   }
 }

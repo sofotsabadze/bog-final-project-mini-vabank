@@ -1,1 +1,51 @@
-<p>pmd311 works!</p>
+<div class="ui segment">
+    <h3 class="ui header">Transfer Funds</h3>
+
+    <div class="ui grid">
+        <div class="ten wide column">
+            <form class="ui form" [formGroup]="transferForm" (ngSubmit)="onTransferSubmit()">
+
+                <div class="field">
+                    <label>გამგზავნის ანგარიში</label>
+                    <select formControlName="senderAccount" class="ui dropdown">
+                        <option value="">არჩევა</option>
+                        <option *ngFor="let account of senderAccounts" [value]="account.accountId">
+                            {{ account.accountId }} - {{ account.amount }}GEL ({{ account.accountName }})
+                        </option>
+                    </select>
+                    <div *ngIf="transferForm.get('senderAccount')?.invalid && transferForm.get('senderAccount')?.touched"
+                         class="ui red message">
+                        Please select a sender account
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>მიმღების ანგარიში</label>
+                    <select formControlName="recipientAccount" class="ui dropdown">
+                        <option value="">არჩევა</option>
+                        <option *ngFor="let account of recipientAccounts" [value]="account.accountId">
+                            {{ account.accountId }} - {{ account.amount }}GEL ({{ account.accountName }})
+                        </option>
+                    </select>
+                    <div *ngIf="transferForm.get('recipientAccount')?.invalid && transferForm.get('recipientAccount')?.touched"
+                         class="ui red message">
+                        Please select a recipient account
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Amount</label>
+                    <input type="number" formControlName="transferAmount" placeholder="Amount">
+                    <div *ngIf="transferForm.get('transferAmount')?.invalid && transferForm.get('transferAmount')?.touched"
+                         class="ui red message">
+                        Please enter a valid amount
+                    </div>
+                </div>
+
+                <button class="ui green icon button" [disabled]="transferForm.invalid">
+                    <i class="check icon"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

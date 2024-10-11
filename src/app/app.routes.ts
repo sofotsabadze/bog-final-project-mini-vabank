@@ -10,6 +10,7 @@ import {CreateAccountComponent} from "./shell/modules/krn/accounts/create-accoun
 import {AccountsComponent} from "./shell/modules/krn/accounts/accounts.component";
 import {KrnComponent} from "./shell/modules/krn/krn.component";
 import {AuthGuard} from "./auth/AuthGuard";
+import {Pmd311Component} from "./shell/modules/pmd/pmd311/pmd311.component";
 
 export const routes: Routes = [ {
   path: 'auth',
@@ -28,7 +29,23 @@ export const routes: Routes = [ {
       { path: 'bpm01', component: Bpm01Component }
     ]
   },
-
+  {
+    path: 'pmd',
+    component: ShellComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        // component: KrnHeaderComponent,
+        children: [
+          {
+            path: 'pmd311',
+            component: Pmd311Component
+          }
+        ]
+      }
+    ]
+  },
   {
     path: 'krn',
     component: ShellComponent,

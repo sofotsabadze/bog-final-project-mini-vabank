@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import { NgIf, NgOptimizedImage } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import {AuthService} from "../../auth/auth-service";
 
 @Component({
   selector: 'app-shell-header',
@@ -19,20 +20,26 @@ export class ShellHeaderComponent {
   plusPoints: number = 0;
   logoSrc = 'assets/bank-horizontal-logo.png';
   searchQuery: any;
-  showSearch: boolean = true;
 
-  onSearch() {
+  constructor(private authService: AuthService) {
   }
 
   onLanguageChange() {
+    console.log('Language change clicked');
   }
 
   onNotificationClick() {
+    console.log('Notifications clicked');
   }
 
   onProfileClick() {
+    console.log('Profile clicked');
   }
 
   toggleSearch() {
+  }
+
+  onSignOutClick() {
+    this.authService.signOut();
   }
 }
